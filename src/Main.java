@@ -48,7 +48,7 @@ public class Main {
 
         System.out.println("Task 3");
 
-        short speedLimit = 61;
+        short speedLimit = 60;
         float currentSpeed = 60.0F;
         boolean isOverSpeed = (currentSpeed > speedLimit);
         if ((float) speedLimit == currentSpeed) {
@@ -80,22 +80,17 @@ public class Main {
 
         if (humanAge >= 2 && humanAge <= 6) {
             textWhereHumanWillGo = textBefore + "в детский сад";
+        } else if (humanAge >= 7 && humanAge <= 17) {
+            textWhereHumanWillGo = textBefore + "в школу";
+        } else if (humanAge >= 18 && humanAge <= 24) {
+            textWhereHumanWillGo = textBefore + "в университет";
+        } else if (humanAge > 24) {
+            textWhereHumanWillGo = textBefore + "на работу";
         } else {
-            if (humanAge >= 7 && humanAge <= 17) {
-                textWhereHumanWillGo = textBefore + "в школу";
-            } else {
-                if (humanAge >= 18 && humanAge <= 24) {
-                    textWhereHumanWillGo = textBefore + "в университет";
-                } else {
-                    if (humanAge > 24) {
-                        textWhereHumanWillGo = textBefore + "на работу";
-                    } else {
-                        textWhereHumanWillGo = "Если возраст человека равен " + humanAge
-                                + ", то направление не определено техническим заданием";
-                    }
-                }
-            }
+            textWhereHumanWillGo = "Если возраст человека равен " + humanAge
+                    + ", то направление не определено техническим заданием";
         }
+
         System.out.println(textWhereHumanWillGo);
 
         /*
@@ -115,35 +110,18 @@ public class Main {
         textBefore = "Если возраст ребенка равен " + humanAge + ", то ему ";
         boolean isAdultPersonHere = false;
         hasHumanAllRights = false;
-        isAdultPersonHere = (humanAge >= 5 && humanAge < 14 && isAdultPersonHere);
+        isAdultPersonHere = (humanAge > 5 && humanAge < 14 && isAdultPersonHere);
         hasHumanAllRights = (humanAge >= 14);
-
-        //проба тернарным оператором
-//        System.out.println(hasHumanAllRights ?
-//                textBefore + "можно кататься без сопровождения взрослого":
-//                (isAdultPersonHere?
-//                        textBefore + "можно кататься только в сопровождении взрослого":
-//                        textBefore + "нельзя кататься на этом аттракционе"));
 
 // if-else
         if (hasHumanAllRights) {
-
             System.out.println(textBefore + "можно кататься без сопровождения взрослого");
+        } else if (isAdultPersonHere) {
+            System.out.println(textBefore + "можно кататься только в сопровождении взрослого");
         } else {
-            if (isAdultPersonHere) {
-
-                System.out.println(textBefore + "можно кататься только в сопровождении взрослого");
-            } else {
-                if (humanAge >= 5) {
-
-                    System.out.println(textBefore + "нельзя кататься на этом аттракционе без взрослого");
-
-                } else {
-
-                    System.out.println(textBefore + "нельзя кататься на этом аттракционе");
-                }
-            }
+            System.out.println(textBefore + "нельзя кататься на этом аттракционе");
         }
+
         /*
         Задача 6
         Вместимость одного вагона поезда — 102 человека. Вагон рассчитан на 60 сидячих мест, все остальные — стоячие.
@@ -158,10 +136,10 @@ public class Main {
 
         int countOfPassengers = 59; //исходим из того, что все ленивые и сначала занимают сидячие места
 
-        boolean isBusFull = (countOfPassengers >= wagonCapacity);
+        boolean isWagonFull = (countOfPassengers >= wagonCapacity);
         boolean isSeatingsFull = (countOfPassengers >= seatingsCount);
 
-        if (isBusFull) {
+        if (isWagonFull) {
             System.out.println("Вагон полностью занят");
         } else {
             if (isSeatingsFull) {
@@ -183,20 +161,16 @@ public class Main {
 
         System.out.println("Task7");
 
-        int one = 10;
-        int two = 200;
+        int one = 1;
+        int two = 2;
         int three = 3;
 
-        if (one > two && one > three) {
+        if (one >= two && one >= three) {
             System.out.println(one);
+        } else if (two >= three && two >= one) {
+            System.out.println(two);
         } else {
-            if (two > three && two > one) {
-                System.out.println(two);
-            } else {
-                if (three > one && three > two) {
-                    System.out.println(three);
-                }
-            }
+            System.out.println(three);
         }
     }
 }
