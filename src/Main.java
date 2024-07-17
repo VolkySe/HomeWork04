@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -14,11 +12,11 @@ public class Main {
 
         System.out.println("Task 1");
 
-        int intHumanAge = 19;
-        boolean boolHumanHasAllRights = (intHumanAge >= 18);
-        var textBefore = "Если возраст человека равен " + intHumanAge;
+        int humanAge = 19;
+        boolean hasHumanAllRights = (humanAge >= 18);
+        var textBefore = "Если возраст человека равен " + humanAge;
 
-        System.out.println(boolHumanHasAllRights ? textBefore + ", то он совершеннолетний" :
+        System.out.println(hasHumanAllRights ? textBefore + ", то он совершеннолетний" :
                 textBefore + " то, он не достиг совершеннолетия, нужно немного подождать");
 
         /*
@@ -32,11 +30,11 @@ public class Main {
 
         System.out.println("Task 2");
 
-        float floatOutTemp = -14.5F;
-        boolean boolNeedHat = (floatOutTemp < 5.0F);
-        textBefore = "На улице " + floatOutTemp + " градус(а,ов)";
+        float outsideTemp = -14.5F;
+        boolean needHat = (outsideTemp < 5.0F);
+        textBefore = "На улице " + outsideTemp + " градус(а,ов)";
 
-        System.out.println(boolNeedHat ? textBefore + ". На улице холодно, нужно надеть шапку" :
+        System.out.println(needHat ? textBefore + ". На улице холодно, нужно надеть шапку" :
                 textBefore + "/ Сегодня тепло, можно идти без шапки");
 
         /*
@@ -50,16 +48,15 @@ public class Main {
 
         System.out.println("Task 3");
 
-        byte byteSpeedLimit = 61;
-        float floatCurrentSpeed = 60.0F;
-        boolean boolIsWarning = (floatCurrentSpeed > byteSpeedLimit);
-        if ((float) byteSpeedLimit == floatCurrentSpeed) {
-            System.out.println("Внимательно! Ваша скорость " + floatCurrentSpeed + " Ещё немного тапки и, точно, будет штраф");
-        }
-        else {
-            textBefore = "Ограничение скорости: "+ byteSpeedLimit +". Если скорость " + floatCurrentSpeed + " км/ч ";
+        short speedLimit = 61;
+        float currentSpeed = 60.0F;
+        boolean isOverSpeed = (currentSpeed > speedLimit);
+        if ((float) speedLimit == currentSpeed) {
+            System.out.println("Внимательно! Ваша скорость " + currentSpeed + " Ещё немного тапки и, точно, будет штраф");
+        } else {
+            textBefore = "Ограничение скорости: " + speedLimit + ". Если скорость " + currentSpeed + " км/ч ";
 
-            System.out.println(boolIsWarning ? textBefore + "то, придется заплатить штраф" :
+            System.out.println(isOverSpeed ? textBefore + "то, придется заплатить штраф" :
                     textBefore + "то, можно ездить спокойно");
         }
         /*
@@ -77,27 +74,23 @@ public class Main {
 
         System.out.println("Task 4");
 
-        intHumanAge = 25;
+        humanAge = 25;
         var textWhereHumanWillGo = "";
-        textBefore = "Если возраст человека равен " + intHumanAge + ", то ему нужно ходить ";
+        textBefore = "Если возраст человека равен " + humanAge + ", то ему нужно ходить ";
 
-        if (intHumanAge >= 2 && intHumanAge <= 6) {
+        if (humanAge >= 2 && humanAge <= 6) {
             textWhereHumanWillGo = textBefore + "в детский сад";
-        }
-        else {
-            if (intHumanAge >= 7 && intHumanAge <= 17) {
+        } else {
+            if (humanAge >= 7 && humanAge <= 17) {
                 textWhereHumanWillGo = textBefore + "в школу";
-            }
-            else {
-                if (intHumanAge >= 18 && intHumanAge <= 24) {
+            } else {
+                if (humanAge >= 18 && humanAge <= 24) {
                     textWhereHumanWillGo = textBefore + "в университет";
-                    }
-                else {
-                    if (intHumanAge > 24) {
+                } else {
+                    if (humanAge > 24) {
                         textWhereHumanWillGo = textBefore + "на работу";
-                    }
-                    else {
-                        textWhereHumanWillGo = "Если возраст человека равен " + intHumanAge
+                    } else {
+                        textWhereHumanWillGo = "Если возраст человека равен " + humanAge
                                 + ", то направление не определено техническим заданием";
                     }
                 }
@@ -118,35 +111,37 @@ public class Main {
          */
 
         System.out.println("Task5");
-        intHumanAge = 5;
-        textBefore = "Если возраст ребенка равен " + intHumanAge + ", то ему ";
-        boolean boolAdultPersonHere = false;
-        boolHumanHasAllRights=false;
-        boolAdultPersonHere = (intHumanAge>=5 && intHumanAge<14 && boolAdultPersonHere);
-        boolHumanHasAllRights = (intHumanAge >= 14);
+        humanAge = 5;
+        textBefore = "Если возраст ребенка равен " + humanAge + ", то ему ";
+        boolean isAdultPersonHere = false;
+        hasHumanAllRights = false;
+        isAdultPersonHere = (humanAge >= 5 && humanAge < 14 && isAdultPersonHere);
+        hasHumanAllRights = (humanAge >= 14);
 
         //проба тернарным оператором
-//        System.out.println(boolHumanHasAllRights ?
+//        System.out.println(hasHumanAllRights ?
 //                textBefore + "можно кататься без сопровождения взрослого":
-//                (boolAdultPersonHere?
+//                (isAdultPersonHere?
 //                        textBefore + "можно кататься только в сопровождении взрослого":
 //                        textBefore + "нельзя кататься на этом аттракционе"));
 
 // if-else
-        if (boolHumanHasAllRights) {
-            System.out.println(textBefore + "можно кататься без сопровождения взрослого");}
-        else
-        {
-            if (boolAdultPersonHere) {
+        if (hasHumanAllRights) {
+
+            System.out.println(textBefore + "можно кататься без сопровождения взрослого");
+        } else {
+            if (isAdultPersonHere) {
+
                 System.out.println(textBefore + "можно кататься только в сопровождении взрослого");
-            }else
-            {
-                if (intHumanAge>=5) {
+            } else {
+                if (humanAge >= 5) {
+
                     System.out.println(textBefore + "нельзя кататься на этом аттракционе без взрослого");
 
+                } else {
+
+                    System.out.println(textBefore + "нельзя кататься на этом аттракционе");
                 }
-                else {
-                System.out.println(textBefore + "нельзя кататься на этом аттракционе");}
             }
         }
         /*
@@ -157,6 +152,51 @@ public class Main {
          */
 
         System.out.println("Task6");
+        int seatingsCount = 60;
+        int standingsCount = 42;
+        int wagonCapacity = seatingsCount + standingsCount;
 
+        int countOfPassengers = 59; //исходим из того, что все ленивые и сначала занимают сидячие места
+
+        boolean isBusFull = (countOfPassengers >= wagonCapacity);
+        boolean isSeatingsFull = (countOfPassengers >= seatingsCount);
+
+        if (isBusFull) {
+            System.out.println("Вагон полностью занят");
+        } else {
+            if (isSeatingsFull) {
+                System.out.println("Есть стоячие места");
+            } else {
+                System.out.println("Есть сидячие места");
+            }
+        }
+
+        /*
+        Даны три числа:
+        int one;
+        int two;
+        int three;
+
+        С помощью условного оператора и конструкции else напишите программу, которая вычисляет, какое из трех чисел
+        бо́льшее, и выводит результат в консоль
+         */
+
+        System.out.println("Task7");
+
+        int one = 10;
+        int two = 200;
+        int three = 3;
+
+        if (one > two && one > three) {
+            System.out.println(one);
+        } else {
+            if (two > three && two > one) {
+                System.out.println(two);
+            } else {
+                if (three > one && three > two) {
+                    System.out.println(three);
+                }
+            }
+        }
     }
 }
